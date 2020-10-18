@@ -21,7 +21,7 @@ textarea{
   border-bottom: 10px solid black;
 }
 
-.text{
+.description{
   white-space: pre-wrap;
 }
 
@@ -40,7 +40,7 @@ textarea{
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
-  text-align: middle;
+  text-align: center;
 }
 
 .past {
