@@ -3,6 +3,11 @@
 var taskHour = document.getElementById('')
 var timeofDay = [ 9, 10, 11, 12, 13, 14, 15, 16, 17]
 var currentHour = moment().format('HH');
+var currentTime =  moment().format('MMMM Do YYYY, h:mm:ss A');
+var hourNow = moment().format('h');
+var hourNowInt = parseInt(hourNow);
+var Timer;
+
 
 console.log(currentHour);
 setInterval(() => {
@@ -32,12 +37,22 @@ $('.clearBtn').on("click", function(){
 
 
 function colorCoding () {
-while (currentHour === timeofDay){
-    if (timeofDay >= 9 && timeofDay <= 17){
- for (var i = 1; i < 9; i++){
-
- }   //end of for
-}//end of if
-} //end of while
-
+    TIMER = setInterval(colorCoding, 1000);
+    if(currentTime >=9 && currentTime <= 17) {
+        for (var i =1; i<=9; i++){
+            var hourInInt = parseInt($('#time-block' + i).text());
+            if (hourInInt < 9) {
+                hourInInt = hourInInt + 12;
+            }
+            if (hourInInt == currentTime) {
+                $('input' + i).addClass('.future');
+            } else {
+                $('input' + i).addClass('.present');
+            }
+        }
+    }
+else {
+    clearInterval(TIMER);
+    $('input').addClass('.past');
+}
 }
